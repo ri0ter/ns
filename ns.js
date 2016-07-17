@@ -1,4 +1,6 @@
-(function(){ 
+(function(){
+
+    "use strict";
 
     var Ns = initiator;
     
@@ -83,6 +85,7 @@
         return Class;
     }
 
+    // TODO: add static Classes support
     function initiator(ns) {
         if(!ns){
             return {

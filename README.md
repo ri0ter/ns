@@ -1,5 +1,6 @@
 # ns
 Library for creating namespaces classes with inheritance based on John Resig's Simple JavaScript Inheritance http://ejohn.org/blog/simple-javascript-inheritance.
+Usefull especially when you don't want to use some big javascript framework and you'd like to organize your code.
 
 Usage:
 ```

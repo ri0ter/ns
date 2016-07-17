@@ -24,7 +24,6 @@
                 if(reference) {
                     scope[name] = reference;
                 }
-                scope = scope[name];
 
                 if(nsList.indexOf(namespace) === -1) {
                     nsList.push(namespace);
@@ -37,9 +36,7 @@
                 scope[name] = scope[name] || {};
             }
 
-            if(i === 0) {
-                scope = scope[name];
-            }
+            scope = scope[name];
         }
 
         return scope;

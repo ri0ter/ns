@@ -4,7 +4,7 @@
 
     var Ns = initiator;
     
-	var nsList = [];
+    var nsList = [];
 
     function Namespace(namespace, reference) {
         var scope = Ns;
@@ -45,7 +45,7 @@
     }
 
     /*
-	 *	Based on John Resig's Simple JavaScript Inheritance http://ejohn.org/blog/simple-javascript-inheritance
+     * Based on John Resig's Simple JavaScript Inheritance http://ejohn.org/blog/simple-javascript-inheritance
      */
     var initializing = false;
     var fnTest = /xyz/.test(function(){xyz;}) ? /\b_super\b/ : /.*/;
@@ -93,6 +93,10 @@
             }
         }
         return {
+            "Class" : function(prop) {
+                var _new = extend(function(){}, prop);
+                return Namespace(ns, _new);
+            },
             "extends": function(_ns){
                 var base = Namespace(_ns);
                 if(!base) {
@@ -104,10 +108,6 @@
                         return Namespace(ns, _new);
                     }
                 }
-            },
-            "Class" : function(prop) {
-                var _new = extend(function(){}, prop);
-                return Namespace(ns, _new);
             }
         };
     }

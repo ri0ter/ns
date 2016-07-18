@@ -16,12 +16,12 @@
         for(i; i<len; i++) {
             var name = names[i];
             if(!/^[A-Za-z]+$/.test(name)) {
-                throw new Error('Namespace Error: invalid character in namespace');
+                throw new Error('Invalid character in namespace '+namespace);
             }
 
             if(i === last) {
                 if(scope[name] && reference && console.warn) {
-                    throw new Error('Selected namespace already exist');
+                    throw new Error('Selected namespace "'+namespace+'" already exist');
                 }
                 if(reference) {
                     scope[name] = reference;
@@ -32,7 +32,7 @@
             }
             else {
                 if(typeof scope[name] === "function") {
-                    throw new Error('Namespace Error: Function cannot be used as a part of namespace');
+                    throw new Error('Function cannot be used as a part of namespace: "'+name+'"');
                 }
                 scope[name] = scope[name] || {};
             }
@@ -56,7 +56,7 @@
         initializing = false;
 
         for (var name in prop) {
-            prototype[name] = typeof prop[name] == "function" &&
+            prototype[name] = typeof prop[name] == 'function' &&
             typeof _super[name] == "function" && fnTest.test(prop[name]) ?
                 (function(name, fn){
                     return function() {
@@ -84,7 +84,6 @@
         return Class;
     }
 
-    // TODO: add static Classes support
     function initiator(ns) {
         if(!ns){
             return {
@@ -99,10 +98,10 @@
             "extends": function(_ns){
                 var base = Namespace(_ns);
                 if(!base) {
-                    throw new Error ("No such a class found at given namespace");
+                    throw new Error ('No such a class: "'+_ns+'" found');
                 }
-                if(Object.prototype.toString.call(base) === "[object Object]") { //if base is static
-                    throw new Error ("Cannot extend static class");
+                if(Object.prototype.toString.call(base) === '[object Object]') { //if base is static
+                    throw new Error ('Cannot extend static class');
                 }
                 return {
                     "Class": function(prop) {
@@ -113,8 +112,8 @@
             },
             "static" : {
                 "Class" : function(prop) {
-                    if(Object.prototype.toString.call(prop) !== "[object Object]") {
-                        throw new Error("Static class must bye type of object");
+                    if(Object.prototype.toString.call(prop) !== '[object Object]') {
+                        throw new Error('Static class must bye type of object');
                     }
                     return Namespace(ns, prop);
                 }

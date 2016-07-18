@@ -2,12 +2,12 @@
 
     //"use strict"; <- causes error in browsers != Chrome
 
-    var DEFAULT_PROPS = ["length", "name", "prototype"];
+    var DEFAULT_PROPS = ["length", "name", "prototype", "caller", "prototype"];
 
     var Ns = initiator;
     
     var nsList = [];
-//  TODO: add inheritance tree
+//  var inheritanceTree = {}; TODO: add inheritance tree
 
     function Namespace(namespace, reference) {
         var scope = Ns;

@@ -1,6 +1,6 @@
 describe("Ns tests: ", function(){
 
-    var defaultProps = ["length", "name", "prototype"];
+    var defaultProps = ["length", "name", "prototype", "caller", "prototype"];
 
     beforeEach(function() {
         // clear all properties from _ns before each test

@@ -1,0 +1,31 @@
+{
+  "name": "ns",
+  "version": "0.0.2",
+  "description": "\"Simple classes with namespace\"",
+  "main": "index.html",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "karma" : "./node_modules/.bin/karma" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ri0ter/ns.git"
+  },
+  "author": "ri0ter",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/ri0ter/ns/issues"
+  },
+  "homepage": "https://github.com/ri0ter/ns#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "karma": "^1.1.1",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^1.1.1",
+    "karma-mocha-reporter": "^2.0.4",
+    "mocha": "^2.5.3"
+  }
+}

@@ -23,7 +23,7 @@
             }
 
             if(i === last) {
-                if(scope[name] && reference && console.warn) {
+                if(scope[name] && reference) {
                     throw new Error('Selected namespace "'+namespace+'" already exist');
                 }
                 if(reference) {

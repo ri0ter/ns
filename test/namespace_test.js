@@ -59,4 +59,17 @@ describe("Ns tests: ", function(){
         }).to.throw('No such a class: "test.case.NotExisting" found');
     });
 
+    it("Will create a static class", function() {
+        _ns("test.case.StaticClass").static.Class({
+            "DoSomething" : function() {
+
+            },
+            "DoSomethingElse" : function() {
+
+            }
+        });
+
+        expect(_ns.test.case.StaticClass).to.exist;
+    });
+
 });

@@ -25,10 +25,9 @@
                 }
                 if(reference) {
                     scope[name] = reference;
-                }
-
-                if(nsList.indexOf(namespace) === -1) {
-                    nsList.push(namespace);
+                    if(nsList.indexOf(namespace) === -1) {
+                        nsList.push(namespace);
+                    }
                 }
             }
             else {

@@ -114,12 +114,10 @@
             },
             "static" : {
                 "Class" : function(prop) {
-                    if(Object.prototype.toString.call(prop) === "[object Object]") {
-                        return Namespace(ns, prop);
+                    if(Object.prototype.toString.call(prop) !== "[object Object]") {
+                        throw new Error("Static class must bye type of object");
                     }
-                    else {
-
-                    }
+                    return Namespace(ns, prop);
                 }
             }
         };

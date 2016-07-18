@@ -2,6 +2,8 @@
 
     "use strict";
 
+    var DEFAULT_PROPS = ["length", "name", "prototype"];
+
     var Ns = initiator;
     
     var nsList = [];
@@ -31,6 +33,11 @@
                 }
             }
             else {
+                if(i === 0) {
+                    if (DEFAULT_PROPS.indexOf(name) !== -1) {
+                        throw new Error('Cannot use reserved word: "' + name + '"');
+                    }
+                }
                 if(typeof scope[name] === "function") {
                     throw new Error('Function cannot be used as a part of namespace: "'+name+'"');
                 }

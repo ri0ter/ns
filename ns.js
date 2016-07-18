@@ -102,10 +102,23 @@
                 if(!base) {
                     throw new Error ("No such a class found at given namespace");
                 }
+                if(Object.prototype.toString.call(base) === "[object Object]") { //if base is static
+                    throw new Error ("Cannot extend static class");
+                }
                 return {
                     "Class": function(prop) {
                         var _new = extend(base, prop);
                         return Namespace(ns, _new);
+                    }
+                }
+            },
+            "static" : {
+                "Class" : function(prop) {
+                    if(Object.prototype.toString.call(prop) === "[object Object]") {
+                        return Namespace(ns, prop);
+                    }
+                    else {
+
                     }
                 }
             }

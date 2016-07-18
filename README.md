@@ -8,7 +8,7 @@ _ns("some.namespace.MyClass").Class({
     init: function(a) {
        this.a = a;
     },
-    getA() {
+    getA: function() {
         return this.a;
     }
 });
@@ -18,7 +18,7 @@ _ns("some.namespace.OtherClass").extends("some.namespace.MyClass").Class({
         this._super(a);
         this.b = b;
     },
-    getB() {
+    getB: function() {
         return this.b;
     }
 });

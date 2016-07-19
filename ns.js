@@ -1,5 +1,19 @@
 (function(){
 
+    /* IE8 polyfill */
+    if(!Array.prototype.indexOf) {
+        Array.prototype.indexOf = function(searchElement) {
+            var len = this.length;
+
+            for(var i = 0; i< len; i++) {
+                var item = this[i];
+                if(item === searchElement)
+                    return i;
+            }
+            return -1;
+        };
+    }
+
     //"use strict"; <- causes error in browsers != Chrome
 
     var DEFAULT_PROPS = ["length", "name", "prototype", "caller", "prototype"];

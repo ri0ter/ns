@@ -37,10 +37,11 @@
             }
 
             if(i === last) {
-                if(scope[name] && reference) {
-                    throw new Error('Selected namespace "'+namespace+'" already exist');
-                }
                 if(reference) {
+                    if(scope[name]) {
+                        throw new Error('Selected namespace "'+namespace+'" already exist');
+                    }
+
                     scope[name] = reference;
                     if(nsList.indexOf(namespace) === -1) {
                         nsList.push(namespace);

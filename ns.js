@@ -16,7 +16,7 @@
 
     //"use strict"; <- causes error in browsers != Chrome
 
-    var DEFAULT_PROPS = ["length", "name", "prototype", "caller", "prototype"];
+    var DEFAULT_PROPS = ["length", "name", "arguments", "caller", "prototype"];
 
     var Ns = initiator;
     

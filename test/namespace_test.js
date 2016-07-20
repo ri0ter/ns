@@ -1,6 +1,6 @@
 describe("Ns tests: ", function(){
 
-    var defaultProps = ["length", "name", "prototype", "caller", "prototype"];
+    var DEFAULT_PROPS = ["length", "name", "arguments", "caller", "prototype"];
 
     beforeEach(function() {
         // clear all properties from _ns before each test
@@ -8,7 +8,7 @@ describe("Ns tests: ", function(){
         var props = Object.getOwnPropertyNames(_ns);
         for(var i = 0; i<props.length; i++) {
             var prop = props[i];
-            if(defaultProps.indexOf(prop) === -1) {
+            if(DEFAULT_PROPS.indexOf(prop) === -1) {
                 _ns[prop] = null;
                 delete _ns[prop];
             }

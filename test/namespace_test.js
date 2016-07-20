@@ -72,4 +72,28 @@ describe("Ns tests: ", function(){
         expect(_ns.test.case.StaticClass).to.exist;
     });
 
+    it("Will get a propper iheritance list", function() {
+        _ns("test.case.ClassA").Class({
+            init: function() {
+
+            }
+        });
+
+        _ns("test.case.ClassB").extends("test.case.ClassA").Class({
+            init: function() {
+
+            }
+        });
+
+        expect(_ns().getClasspath("test.case.ClassB")).to.eql(["test.case.ClassA"]);
+
+        _ns("test.case.ClassC").extends("test.case.ClassB").Class({
+            init: function() {
+
+            }
+        });
+
+        expect(_ns().getClasspath("test.case.ClassC")).to.eql(["test.case.ClassB", "test.case.ClassA"]);
+    });
+
 });

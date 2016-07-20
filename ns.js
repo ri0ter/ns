@@ -21,7 +21,7 @@
     var Ns = initiator;
     
     var nsList = [];
-//  var inheritanceTree = {}; TODO: add inheritance tree
+    var inheritanceList = {};
 
     function Namespace(namespace, reference) {
         var scope = Ns;
@@ -110,7 +110,14 @@
     function initiator(ns) {
         if(!ns){
             return {
-                'list' : nsList.sort()
+                "list" : nsList.sort(),
+                "getClasspath" : function(_ns) {
+                    var list = [];
+                    while(_ns = inheritanceList[_ns]) {
+                        list.push(_ns);
+                    }
+                    return list.length ? list : null;
+                }
             }
         }
         return {
@@ -129,6 +136,7 @@
                 return {
                     "Class": function(prop) {
                         var _new = extend(base, prop);
+                        inheritanceList[ns] = _ns;
                         return Namespace(ns, _new);
                     }
                 }
